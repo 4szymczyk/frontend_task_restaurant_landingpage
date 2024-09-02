@@ -3,10 +3,12 @@ $bg_color: rgb(10, 10, 10);
 $font_text: rgb(255, 255, 255);
 $font_header: rgb(232, 170, 7);
 
-$link_hover: rgb(200, 200, 200);
+$link_hover: rgb(255, 187, 0);
 
 $header_size: clamp(46px, 6vw, 100px);
 $font_size: clamp(18px, 2vw, 25px);
+$h3_size: clamp(32px, 3vw, 48px);
+$font_size_footer: 20px;
 
 * {
    padding: 0;
@@ -149,19 +151,117 @@ nav {
    }
    .burger_box {
       @include main_box_style;
-      width: clamp(80vw, 700px, 90vw) !important;
+      width: 90vw;
       &__header {
          @include header_style;
       }
       &__content {
          display: flex;
          flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: center;
          gap: 20px;
-         border: 2px red solid;
          .burger_container {
-            background-color: rgb(54, 54, 54);
-            padding: 20px 40px;
+            border: 1px solid rgb(42, 42, 42);
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding: 30px 10px;
+            .burger__picture img {
+               width: 200px;
+               aspect-ratio: 1/1;
+               border-radius: 50%;
+            }
+            .burger__name {
+               font-size: $h3_size;
+            }
          }
+      }
+   }
+   .order_box {
+      @include main_box_style;
+      &__header {
+         @include header_style;
+      }
+      &__content {
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+         font-size: $font_size;
+         &__phone_number,
+         .material-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: $font_header;
+            font-size: $h3_size;
+            font-weight: 600;
+         }
+         .liefer_dienste {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+         }
+         img {
+            width: 50px;
+         }
+      }
+   }
+}
+
+footer {
+   .footer_wrapper {
+      font-size: $font_size_footer;
+      background-color: #101010;
+      opacity: 0.8;
+      background-image: radial-gradient(rgb(232, 170, 7) 0.65px, rgb(25, 25, 25) 0.65px);
+      background-size: 13px 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      padding: 30px 20px;
+      &__logo img {
+         width: 120px;
+         aspect-ratio: 1/1;
+         border-radius: 50%;
+      }
+      &__line {
+         height: 3px;
+         width: 80%;
+         max-width: 500px;
+         background-color: $font_header;
+      }
+      &__restaurant {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 10px;
+         .material-icons {
+            font-size: 3em;
+         }
+      }
+      &__socials {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         &__links {
+            display: flex;
+            gap: 15px;
+            img {
+               width: 30px;
+            }
+         }
+      }
+      &__infos {
+         display: flex;
+         align-items: center;
+         gap: 40px;
       }
    }
 }
@@ -186,6 +286,8 @@ nav {
          gap: 10px;
       }
    }
+   .footer_wrapper__infos {
+      flex-direction: column;
+      gap: 10px !important;
+   }
 }
-
-// TEST
