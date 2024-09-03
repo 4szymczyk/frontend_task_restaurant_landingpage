@@ -124,7 +124,6 @@ nav {
 
 .main_wrapper {
    text-align: center;
-   padding: 50px 0;
    display: flex;
    flex-direction: column;
    gap: 150px;
@@ -135,6 +134,9 @@ nav {
       }
       &__content {
          font-size: $font_size;
+         display: flex;
+         flex-direction: column;
+         gap: 30px;
       }
       &__button {
          width: 180px;
@@ -170,13 +172,15 @@ nav {
             justify-content: flex-start;
             gap: 20px;
             padding: 30px 10px;
-            .burger__picture img {
+            .burger__name {
+               font-size: $h3_size;
+            }
+         }
+         .burger_container__picture {
+            .burger_image {
                width: 200px;
                aspect-ratio: 1/1;
                border-radius: 50%;
-            }
-            .burger__name {
-               font-size: $h3_size;
             }
          }
       }
@@ -201,7 +205,7 @@ nav {
             font-size: $h3_size;
             font-weight: 600;
          }
-         .liefer_dienste {
+         &__delivery {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -210,6 +214,54 @@ nav {
          img {
             width: 50px;
          }
+      }
+   }
+   .review_container {
+      @include main_box_style;
+      width: 100%;
+      &__header {
+         @include header_style;
+      }
+      &__content {
+         font-size: $font_size;
+         display: flex;
+         flex-direction: column;
+         gap: 30px;
+      }
+      &__section {
+         display: flex;
+         flex-wrap: wrap;
+         padding: 10px;
+         &__review_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+            height: auto;
+            &__content {
+               width: 90%;
+               height: 90%;
+               display: flex;
+               gap: 40px;
+               padding: 20px;
+               flex-direction: column;
+               justify-content: center;
+               background-color: rgb(25, 25, 25);
+               background-image: radial-gradient(rgb(232, 170, 7) 0.5px, transparent 0.5px),
+                  radial-gradient(rgb(232, 170, 7) 0.5px, rgb(25, 25, 25) 0.5px);
+               background-size: 20px 20px;
+               background-position: 0 0, 10px 10px;
+            }
+         }
+         &__image {
+            width: 70%;
+            height: 600px;
+            object-fit: cover;
+            opacity: 0.7;
+         }
+      }
+      .review_box__text {
+         font-size: clamp(22px, 2vw, 30px);
       }
    }
 }
@@ -236,6 +288,7 @@ footer {
          width: 80%;
          max-width: 500px;
          background-color: $font_header;
+         border: 0;
       }
       &__restaurant {
          display: flex;
@@ -286,8 +339,26 @@ footer {
          gap: 10px;
       }
    }
-   .footer_wrapper__infos {
-      flex-direction: column;
-      gap: 10px !important;
+   .main_wrapper {
+      .review_container {
+         &__section {
+            &__review_box {
+               width: 100%;
+               height: 400px;
+            }
+            &__image {
+               width: 100%;
+               height: 400px;
+            }
+         }
+      }
+   }
+   footer {
+      .footer_wrapper {
+         &__infos {
+            flex-direction: column;
+            gap: 10px;
+         }
+      }
    }
 }
